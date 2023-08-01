@@ -31,9 +31,12 @@ body{
     height: 60px;
 }
 .projet{
-    margin-left: 10px;
+    margin-left: 30px;
     height: 200px;
+    width: 90%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 20px;
     border: 1px solid white;
     margin-top: 50px;
@@ -41,6 +44,24 @@ body{
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    overflow: hidden;
+    transition: 0.5s;
+    
+}
+
+.projet:hover{
+    background-color: rgb(110, 108, 108);
+    color: black;
+    transform: scale(1.01);
+    transition: 0.5s;
+}
+@media screen and (max-width: 1158px){
+    
+    .projet{
+        white-space: nowrap;
+
+    }
+    
 }
 
 .txt{
@@ -48,8 +69,39 @@ body{
     flex-direction: column;
     justify-content: center;
     margin-left: 50px;
+
+    
 }
 
 .projet_img{
+    border-radius: 20px;
+    height: 200px;
+}
+.ghub{
+    height: 200px;
+}
+
+#name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.mini{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.mini_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
     border-radius: 20px;
 }
