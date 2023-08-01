@@ -1,0 +1,47 @@
+body{
+    background-color: rgb(29, 26, 26);
+    margin: 0;
+    padding: 0;
+}
+.bar{
+    background-color: rgb(110, 108, 108);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1.5px solid white;
+    border-left:none ;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+#logo{
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    
+    
+}
+#logo_img{
+    width: 60px;
+    height: 60px;
+}
+.projet{
+    padding-left: 10px;
+    height: 200px;
+    display: flex;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-top: 50px;
+}
+
+.projet_img{
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
