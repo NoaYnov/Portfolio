@@ -165,3 +165,22 @@ body{
     transition: 0.5s;
     margin-right    : 5px;
 }
+
+#mini{
+    height: 25px;
+    margin-right: none;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
