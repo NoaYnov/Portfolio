@@ -1,3 +1,4 @@
 function Redirect(link) {
-    window.location = link;
+    window.open(link, '_blank');
+
 }
