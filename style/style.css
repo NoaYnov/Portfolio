@@ -50,8 +50,7 @@ body{
     height: 200px;
     width: 90%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: column;
     border-radius: 20px;
     border: 1px solid white;
     margin-top: 50px;
@@ -62,6 +61,33 @@ body{
     overflow: hidden;
     transition: 0.5s;
     
+}
+
+.show{
+    display: flex;
+    height: 200px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.hide{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    transition: 0.5s;
+    margin-right: 50%;
+    margin-top: 500px;
+    height: 200px;
+}
+
+.hide_img{
+    height: 200px;
+
 }
 
 .projet:hover{
@@ -83,7 +109,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 50px;
+    margin-left: 20px;
 
     
 }
@@ -116,15 +142,17 @@ body{
     }
 }
 
-.mini{
+.ext{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 150px;
     border-radius: 20px;
+    transition: 0.5s;
+
 }
 
-.mini_img{
+.ext_img{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,7 +172,7 @@ body{
 
 }
 
-.mini_ctn{
+.ext_ctn{
     margin-right: 20px;
     cursor: pointer;
     transition: 0.5s;
@@ -154,7 +182,7 @@ body{
     color: white;
 
 }
-.mini_ctn:hover{
+.ext_ctn:hover{
     text-decoration: underline;
     transform: scale(1.1);
     transition: 0.5s;
@@ -166,7 +194,7 @@ body{
     margin-right    : 5px;
 }
 
-#mini{
+#ext{
     height: 25px;
     margin-right: none;
 }
