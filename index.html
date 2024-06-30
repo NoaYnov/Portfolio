@@ -1,199 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link  type="text/css" rel="stylesheet" href="style/style.css">
-    <script src="script/script.js"></script>
-</head>
-<body>
-    <div class="bar">
-        <div id="logo">
-            <img src="style/img/logo.png" alt="" id="logo_img">
-        </div>
-        <div id="name">
-            BLOG FOLIO GAMBEY NOA
-        </div>
-        <div class="ynov">
-            <img src="style/img/ynov.png" alt="" class="ynov_img">
-        </div>
-    </div>
-
-
-
-    <div class="projet" onclick="Redirect('https://github.com/NoaYnov/GroupieTracker_Gambey_Noa')">
-            <div class="ghub">
+    <title>Projets de Bachelor en Informatique - [Votre Nom]</title>
+    <style>
+        /* Ajoutez les styles globaux ici */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77c7c9 3px solid;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: right;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header h1 {
+            float: left;
+            margin-top: 0;
+        }
+        .main {
+            padding: 20px;
+            background: #fff;
+            margin-top: 100px;
+        }
+        .about {
+            background: #fff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .about h1 {
+            margin-top: 0;
+            font-size: 36px;
+            color: #333;
+        }
+        .about p {
+            font-size: 18px;
+            color: #666;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            flex: 1 1 calc(30% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h2 {
+            color: #333;
+        }
+        .card p {
+            margin: 10px 0;
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .section-title {
+            background: #eee;
+            padding: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #77c7c9;
+        }
+        .section-title h2 {
+            margin: 0;
+        }
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
     
-                <img src="style/img/Github.png" alt="" class="projet_img">
-            </div>
-            <div class="txt">
-                <h1>Groupie Tracker</h1>
-                <p>Mon Groupie Tracker est un site web codé en html css et go permettant de réferencer tous les trésors, les loots et les mobs de Zelda botw</p>
-            </div>
-        </div>
-        
-        <div class="hide">
-            <img src="style/img/test.PNG" alt="" class="hide_img">
-        </div>
-    </div>
-
-
-
-    <div class="projet" onclick="Redirect('https://github.com/matteoVcs/VOCANSON-GAMBEY-shopping-app')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Shopping App</h1>
-            <p>Le Shopping App est un site réalisé avec <a href="https://github.com/matteoVcs/">Matteo Vocanson</a> reprenant le site Crocs avec une page de presentation de chaque crocs ainsi qu'une personnalisation poussé, le tout codé en html, css, js et go  </p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-
-    <div class="projet" onclick="Redirect('https://github.com/valentinlamine/LAMINE_GAMBEY_VOCANSON_GENDRON_Forum')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Upit</h1>
-            <p>Le Projet Forum nommé Upit en collaboration avec <a href="https://github.com/matteoVcs/">Matteo Vocanson</a>, <a href="https://github.com/valentinlamine/">Valentin Lamine</a>,<a href="https://github.com/AdrienGend">Adrien Gendron</a>. Il a été codé en html, css,js,go avec l'utilisation de base de donnée MySQL, il reprend les codes de reddit et permet donc d'échanger sur différend topics tout en gérant les droit en fonction de votre grade eux memes affilié a votre compte. </p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-
-    <div class="projet" onclick="Redirect('https://github.com/NoaYnov/Hangman-Web-Vocanson-Gambey')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Hangman Web</h1>
-            <p>Le Hangman Web est un site réalisé en collaboration avec <a href="https://github.com/matteoVcs/">Matteo Vocanson</a> qui permet de jouer en ligne au jeu du pendu dans différend mode, facile, moyen ou diifficile.</p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-
-    <div class="projet" onclick="Redirect('https://github.com/NoaYnov/Projet-Red')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Projet Red</h1>
-            <p>Le projet Red est le projet des Ymerssion qui consistait à créer un jeu d'aventure sur un terminal en go.</p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-    <div class="projet" onclick="Redirect('https://github.com/matteoVcs/java')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Exercices Java</h1>
-            <p>Les exercices java sont l'endroit ou nous avons stocké la grande partie des devoirs fait avec le langage Java</p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-    <div class="projet" onclick="Redirect('https://github.com/Bahsiik/Challenge-48h')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Challenge 48h</h1>
-            <p>Le Challenge 48H est un projet sur 2 jours réalisé en équipe mélengeant B1 et B2 dont le theme était cybersécurité.</p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-    <div class="projet" onclick="Redirect('https://github.com/RathGate/Gestion-de-Projet')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Gestion De Projet</h1>
-            <p>La Gestion de Projet a été un exercice ayant duré 2 jour durant lequels notre équipe de 6 personnes devait recréer un site web à partir d'un model.</p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-    <div class="projet" onclick="Redirect('https://github.com/matteoVcs/Vocanson-Gambey-Hangman')">
-        <div class="ghub">
-
-            <img src="style/img/Github.png" alt="" class="projet_img">
-        </div>
-        <div class="txt">
-            <h1>Hangman</h1>
-            <p>Le Hangman a été la premiere version du Hangman Web celui ci était un jeu de pendu mais uniquement affiché sur me terminal.</p>
-        </div>
-        <div class="ext">
-            
-        </div>
-    </div>
-
-
-
-    <div class="footer_1">
-        <div class="ext_ctn" onclick="Redirect('https://github.com/NoaYnov/')">
-            <img src="style/img/profil.png" alt="" class="icon_img">
-            Mon Github
-        </div>
-        <div class="ext_ctn" onclick="Redirect('https://www.google.com/maps/place/Aix+Ynov+Campus/@43.5235559,5.4327423,15z/data=!4m2!3m1!1s0x0:0x88b7715d87622590?sa=X&ved=2ahUKEwj07u32sL6AAxWQVaQEHTRsDCUQ_BJ6BAgzEAA&ved=2ahUKEwj07u32sL6AAxWQVaQEHTRsDCUQ_BJ6BAg8EAg')">
-            <img src="style/img/location.png" alt="" class="icon_img">
-            Où me trouver ?
-        </div>
-        <div class="ext_ctn" onclick="Redirect('https://www.ynov.com/formation/bachelors/informatique/')">
-            <img src="style/img/pc.png" alt="" class="icon_img">
-            Ma Filiere
-        </div>
-        <div class="social">
-            <div class="ext_ctn">
-                <img src="style/img/insta.png" alt="" class="icon_img" id="ext">
-            </div>
-            <div class="ext_ctn">
-                <img src="style/img/twitter.png" alt="" class="icon_img" id="ext">
-            </div>
-            <div class="ext_ctn">
-                <img src="style/img/facebook.png" alt="" class="icon_img" id="ext">
-            </div>
-            <div class="ext_ctn">
-                <img src="style/img/youtube.png" alt="" class="icon_img" id="ext">
-            </div>
-        </div>
-        
-
-    </div>
     
-</body>
-</html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            const backToTopButton = document.getElementById('backToTop');
+            const header = document.querySelector('header');
+        
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+        
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+        
+                if (window.scrollY > 100) {
+                    header.style.backgroundColor = '#444';
+                } else {
+                    header.style.backgroundColor = '#333';
+                }
+            });
+        
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        
+    </script>
+    
+    
+    <body>
+        <header>
+            <div class="container">
+                <h1>Mes Projets de Bachelor en Informatique</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#projects">Projets</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="container">
+            <section id="about" class="about">
+                <h1>À propos de moi</h1>
+                <p>Bonjour! Je m'appelle Noa Gambey, et je suis actuellement en deuxième année de Bachelor en Informatique à l'école Ynov Aix. Je m'oriente vers la spécialisation en Data et Intelligence Artificielle. Cette page présente les projets que j'ai réalisés durant mes deux premières années de Bachelor.</p>
+            </section>
+            
+            <section id="projects" class="main">
+                <h1>Mes Projets</h1>
+    
+                <div class="section-title">
+                    <h2>Projets de Bachelor 1</h2>
+                </div>
+                <div class="card-container">
+                    <div class="card">
+                        <h2>Projet Red</h2>
+                        <p><strong>Description:</strong>Il s'agit du premier projet de ma B1 c'est un petit jeu à choix sur terminal avec une gestion de la vie, d'un inventaire et des combats : en binome</p>
+                        <p><strong>Technologies utilisées:</strong>Uniquement Golang</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/Projet-Red">Projet Red</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Hangman terminal et web</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un jeu du pendu en terminal et en web avec sauvegarde: en binome</p>
+                        <p><strong>Technologies utilisées:</strong>Golang, HTML CSS</p>
+                        <p><strong>Lien du projet (version terminal):</strong> <a href="https://github.com/matteoVcs/Vocanson-Gambey-Hangman">Hangman</a></p>
+                        <p><strong>Lien du projet (version web):</strong> <a href="https://github.com/NoaYnov/Hangman-Web-Vocanson-Gambey">Hangman web</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Groupie Tracker</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un site web permettant de d'accéder à toutes les informations du jeu Zelda Breath of the Wild, grâce à une API: en solo</p>   
+                        <p><strong>Technologies utilisées:</strong>Golang, HTML CSS</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/GroupieTracker_Gambey_Noa">Groupie Tracker</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Projet Crocs</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un site web de shopping sur le thème des crocs qui permet de choisir des crocs, dans plusieurs couleurs et tailles et de les ajouter à un panier: en binome</p>
+                        <p><strong>Technologies utilisées:</strong>JavaScript, HTML CSS</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/matteoVcs/VOCANSON-GAMBEY-shopping-app">Projet Crocs</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Projet Forum</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un forum où les utilisateurs peuvent poster des messages, des commentaires créer des topics et des sous topics, liker et disliker des messages: projet à 4</p>
+                        <p><strong>Technologies utilisées:</strong>JavaScript, Golang, HTML CSS, Base de donnée SQL</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/valentinlamine/LAMINE_GAMBEY_VOCANSON_GENDRON_Forum">Projet Forum</a></p>
+                    </div>
+                </div>
+    
+                <div class="section-title">
+                    <h2>Projets de Bachelor 2</h2>
+                </div>
+                <div class="card-container">
+                    <div class="card">
+                        <h2>Mario Bros Unity</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un clone du jeu Mario Bros réalisé avec Unity: en solo</p>
+                        <p><strong>Technologies utilisées:</strong>C# (Unity)</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/Mario-Bros">Mario Bros Unity</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Projet VPN</h2>
+                        <p><strong>Description:</strong>Il s'agit de la mise en place d'un VPN avec OpenVPN sur AWS, avec des comptes clients, un firewall, un intranet et un système de gestion des logs : en binome</p>
+                        <p><strong>Technologies utilisées:</strong>AWS, OpenVPN, UFW (Firewall), HTML CSS (pour les pages de l'intranet), Linux</p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Create Nuclear</h2>
+                        <p><strong>Description:</strong>Je suis actuellement le Co-Directeur de projet d'un Mod Minecraft nommé Create Nuclear, qui ajoute des machines et des items dans le jeu. Il s'agit d'un projet open source qui à été fait par un grand nombre de personnes de différent niveaux et de différentes filières (Informatique, 3d et Création design): en groupe</p>
+                        <p><strong>Technologies utilisées:</strong>Java</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/CreateNuclear/CreateNuclear">Create Nuclear</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Projet IOT</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un projet de domotique avec un système de gestion des cas contact au alentour : en groupe de 4</p>
+                        <p><strong>Technologies utilisées:</strong>C++ Arduino</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/IOT_Project/">Projet IOT</a></p>
+                    </div>
+    
+                    <div class="card">
+                        <h2>Login Sécurisé</h2>
+                        <p><strong>Description:</strong>Il s'agit d'un projet de login sécurisé avec un système de hashage des mots de passe et de gestion des sessions un système pour pouvoir rester connecté grâce à un token : en solo</p>
+                        <p><strong>Technologies utilisées:</strong>DAL(PHP) et Base de Donnée SQL</p>
+                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/S-cu">Login Sécurisé</a></p>
+                    </div>
+                </div>
+            </section>
+    
+            <section id="contact" class="main">
+                <h1>Contact</h1>
+                <p>Pour plus d'informations ou pour toute opportunité de collaboration, vous pouvez me contacter via les informations ci-dessous:</p>
+                <p>Email: noa.gambey@ynov.com</p>
+                <p>Téléphone: 0778955876</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/noa-gambey/">Gambey Noa</a></p>
+            </section>
+        </div>
+    
+        <footer class="footer">
+            <p>© 2024 Gambey Noa. Tous droits réservés.</p>
+        </footer>
+        <button id="backToTop">↑</button>
+        <script src="script.js"></script>
+    </body>
+    
