@@ -3,293 +3,1208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projets de Bachelor en Informatique - Gambey</title>
+    <title>Noa Gambey - Data Scientist & Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Ajoutez les styles globaux ici */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e5e7eb;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --data-gradient: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
             scroll-behavior: smooth;
         }
-        .container {
-            width: 80%;
-            margin: auto;
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient);
+            color: white;
+            position: relative;
             overflow: hidden;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77c7c9 3px solid;
-            position: fixed;
-            width: 100%;
+
+        .hero::before {
+            content: '';
+            position: absolute;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff0a" points="0,1000 1000,800 1000,1000"/></svg>');
+            background-size: cover;
         }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
-        header ul {
-            padding: 0;
-            list-style: none;
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
         }
-        header li {
-            float: right;
-            display: inline;
-            padding: 0 20px 0 20px;
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
-        header h1 {
-            float: left;
-            margin-top: 0;
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0.8;
         }
-        .main {
-            padding: 20px;
-            background: #fff;
-            margin-top: 100px;
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-        .about {
-            background: #fff;
+
+        .btn {
+            padding: 12px 24px;
             border-radius: 8px;
-            padding: 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .about h1 {
-            margin-top: 0;
-            font-size: 36px;
-            color: #333;
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
         }
-        .about p {
-            font-size: 18px;
-            color: #666;
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
         }
-        .card-container {
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--data-gradient);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--surface);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--data-gradient);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .skills-tags {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            gap: 0.5rem;
         }
-        .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            padding: 20px;
-            flex: 1 1 calc(30% - 20px);
-            box-sizing: border-box;
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-tag.data {
+            background: var(--data-gradient);
+        }
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--border);
+            background: white;
+            color: var(--text-secondary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .filter-btn.data-filter.active,
+        .filter-btn.data-filter:hover {
+            background: var(--data-gradient);
+            border: 2px solid transparent;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            padding: 1.5rem;
+            background: var(--gradient);
+            color: white;
+            position: relative;
+        }
+
+        .project-header.data-project {
+            background: var(--data-gradient);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--surface);
+            color: var(--text-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .link-github {
+            background: var(--text-primary);
+            color: white;
+        }
+
+        .link-demo {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Data Viz Section */
+        .data-viz {
+            background: var(--surface);
+            position: relative;
+        }
+
+        .viz-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .viz-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: transform 0.3s ease;
         }
-        .card:hover {
-            transform: translateY(-10px);
+
+        .viz-card:hover {
+            transform: translateY(-5px);
         }
-        .card h2 {
-            color: #333;
+
+        .viz-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--data-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .card p {
-            margin: 10px 0;
+
+        .viz-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
         }
+
+        .viz-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--text-primary);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        /* Footer */
         .footer {
-            background: #333;
-            color: #fff;
+            background: var(--text-primary);
+            color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .section-title {
-            background: #eee;
-            padding: 10px;
-            margin-top: 20px;
-            border-left: 5px solid #77c7c9;
-        }
-        .section-title h2 {
-            margin: 0;
-        }
-        #backToTop {
+
+        /* Back to Top Button */
+        .back-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: none;
-            background: #333;
-            color: #fff;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
             border: none;
-            padding: 10px;
-            border-radius: 5px;
+            border-radius: 50%;
             cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
         }
     </style>
-    
-    
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Noa Gambey</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#projects" class="nav-link">Projets</a></li>
+                <li><a href="#data-viz" class="nav-link">Data Science</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Noa Gambey</h1>
+            <p class="hero-subtitle">Data Scientist & Developer</p>
+            <p class="hero-description">
+                Étudiant en Bachelor Informatique à Ynov Aix, spécialisé en Data Science et Intelligence Artificielle. 
+                Passionné par l'analyse de données, le machine learning et le développement de solutions innovantes.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> Voir mes projets
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Me contacter
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+                <p>Découvrez mon parcours et mes compétences en développement et analyse de données</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Noa Gambey</h3>
+                        <p>B2 Informatique - Ynov Aix</p>
+                        <div class="skills-tags">
+                            <span class="skill-tag data">Python</span>
+                            <span class="skill-tag data">Machine Learning</span>
+                            <span class="skill-tag">Go</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Passionné de Data Science & Développement</h3>
+                    <p>
+                        Actuellement en deuxième année de Bachelor en Informatique à Ynov Aix, je me spécialise dans 
+                        l'analyse de données et l'intelligence artificielle. Mon objectif est de transformer les données 
+                        en insights exploitables pour résoudre des problèmes complexes.
+                    </p>
+                    <p>
+                        Au cours de mes études, j'ai développé une solide expertise en programmation et une passion 
+                        particulière pour l'analyse de données, le machine learning et la visualisation de données. 
+                        Je maîtrise plusieurs langages et technologies, allant du développement web traditionnel 
+                        aux outils de data science les plus récents.
+                    </p>
+                    <p>
+                        Mon approche combine créativité technique et rigueur analytique pour créer des solutions 
+                        innovantes et performantes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Science Skills Section -->
+    <section id="data-viz" class="section data-viz">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compétences en Data Science</h2>
+                <p>Mes domaines d'expertise en analyse de données et intelligence artificielle</p>
+            </div>
+            <div class="viz-container">
+                <div class="viz-card">
+                    <div class="viz-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="viz-title">Analyse de Données</h3>
+                    <p class="viz-description">
+                        Exploration, nettoyage et analyse de datasets complexes. 
+                        Maîtrise de Pandas, NumPy et des techniques statistiques avancées.
+                    </p>
+                </div>
+                <div class="viz-card">
+                    <div class="viz-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="viz-title">Machine Learning</h3>
+                    <p class="viz-description">
+                        Développement de modèles prédictifs et algorithmes d'apprentissage automatique. 
+                        Expérience avec Scikit-learn et TensorFlow.
+                    </p>
+                </div>
+                <div class="viz-card">
+                    <div class="viz-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="viz-title">Visualisation</h3>
+                    <p class="viz-description">
+                        Création de visualisations interactives et dashboards. 
+                        Utilisation de Matplotlib, Seaborn, Plotly et outils BI.
+                    </p>
+                </div>
+                <div class="viz-card">
+                    <div class="viz-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="viz-title">Big Data</h3>
+                    <p class="viz-description">
+                        Gestion et analyse de grandes volumes de données. 
+                        Connaissance des bases de données SQL et NoSQL.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes Projets</h2>
+                <p>Une sélection de mes réalisations en développement et data science</p>
+            </div>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn data-filter" data-filter="data">Data Science</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="game">Jeux</button>
+                <button class="filter-btn" data-filter="system">Système</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Data Science Projects -->
+                <div class="project-card" data-category="data">
+                    <div class="project-header data-project">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="project-title">Analyse de Données IoT</h3>
+                        <p class="project-category">Data Science • Internet of Things</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Système de domotique avec analyse en temps réel des données de capteurs. 
+                            Traitement de données IoT pour la gestion des cas contacts et optimisation énergétique.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">C++ Arduino</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">IoT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/NoaYnov/IOT_Project/" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development Projects -->
+                <div class="project-card" data-category="web">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="project-title">Groupie Tracker</h3>
+                        <p class="project-category">Web Development • API</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Application web interactive utilisant une API pour afficher des informations sur Zelda Breath of the Wild. 
+                            Interface moderne avec gestion dynamique des données.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Golang</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">API REST</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/NoaYnov/GroupieTracker_Gambey_Noa" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="project-title">E-commerce Crocs</h3>
+                        <p class="project-category">Web Development • E-commerce</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Site e-commerce moderne avec système de panier, gestion des variantes produits (couleurs, tailles) 
+                            et interface utilisateur responsive.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">E-commerce</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/matteoVcs/VOCANSON-GAMBEY-shopping-app" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="project-title">Forum Communautaire</h3>
+                        <p class="project-category">Full Stack • Base de Données</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Plateforme de forum complète avec système d'authentification, gestion des topics, 
+                            commentaires, likes/dislikes et base de données SQL.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Golang</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Full Stack</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/valentinlamine/LAMINE_GAMBEY_VOCANSON_GENDRON_Forum" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Project -->
+                <div class="project-card" data-category="system">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="project-title">Système d'Authentification Sécurisé</h3>
+                        <p class="project-category">Sécurité • Backend</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Système de connexion sécurisé avec hashage des mots de passe, gestion des sessions 
+                            et authentification par tokens. Implémentation de bonnes pratiques de sécurité.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Sécurité</span>
+                            <span class="tech-tag">Cryptographie</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/NoaYnov/S-cu" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="system">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="project-title">Infrastructure VPN</h3>
+                        <p class="project-category">Réseau • Cloud • Sécurité</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Déploiement d'une infrastructure VPN complète sur AWS avec OpenVPN, 
+                            firewall UFW, intranet personnalisé et système de monitoring des logs.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">OpenVPN</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Firewall</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Development -->
+                <div class="project-card" data-category="game">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="project-title">Mario Bros Unity</h3>
+                        <p class="project-category">Game Development • Unity</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Clone fidèle du classique Mario Bros développé avec Unity. 
+                            Implémentation complète des mécaniques de jeu, physique et animations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Game Design</span>
+                            <span class="tech-tag">2D</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/NoaYnov/Mario-Bros" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="game">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h3 class="project-title">Create Nuclear (Mod Minecraft)</h3>
+                        <p class="project-category">Modding • Open Source • Management</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Co-Directeur de projet d'un mod Minecraft open source ajoutant des machines nucléaires. 
+                            Gestion d'équipe multidisciplinaire et développement Java avancé.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Minecraft Forge</span>
+                            <span class="tech-tag">Management</span>
+                            <span class="tech-tag">Open Source</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/CreateNuclear/CreateNuclear" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Classic Projects -->
+                <div class="project-card" data-category="game">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-spell-check"></i>
+                        </div>
+                        <h3 class="project-title">Hangman Game</h3>
+                        <p class="project-category">CLI • Web • Game</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Jeu du pendu développé en deux versions : terminal et web. 
+                            Système de sauvegarde et interface utilisateur intuitive.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Golang</span>
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">CLI</span>
+                            <span class="tech-tag">Web</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/matteoVcs/Vocanson-Gambey-Hangman" class="project-link link-github">
+                                <i class="fab fa-github"></i> Terminal
+                            </a>
+                            <a href="https://github.com/NoaYnov/Hangman-Web-Vocanson-Gambey" class="project-link link-github">
+                                <i class="fab fa-github"></i> Web
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="game">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h3 class="project-title">Projet Red</h3>
+                        <p class="project-category">CLI Game • RPG</p>
+                    </div>
+                    <div class="project-body">
+                        <p class="project-description">
+                            Premier projet de programmation : jeu RPG en terminal avec système de combat, 
+                            gestion de l'inventaire et mécaniques de survie.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Golang</span>
+                            <span class="tech-tag">CLI</span>
+                            <span class="tech-tag">RPG</span>
+                            <span class="tech-tag">Game Logic</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/NoaYnov/Projet-Red" class="project-link link-github">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Travaillons ensemble</h3>
+                    <p>
+                        Intéressé par mes projets ? Vous avez une opportunité en data science ou développement ? 
+                        N'hésitez pas à me contacter pour discuter de vos projets et collaborations.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:noa.gambey@ynov.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <br>noa.gambey@ynov.com
+                            </div>
+                        </a>
+                        <a href="tel:0778955876" class="contact-link">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Téléphone</strong>
+                                <br>07 78 95 58 76
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/noa-gambey/" class="contact-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <br>Noa Gambey
+                            </div>
+                        </a>
+                        <a href="https://github.com/NoaYnov" class="contact-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <div>
+                                <strong>GitHub</strong>
+                                <br>@NoaYnov
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="viz-card">
+                        <div class="viz-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="viz-title">Prêt pour de nouveaux défis</h3>
+                        <p class="viz-description">
+                            Actuellement à la recherche de stages et opportunités en data science. 
+                            Passionné par l'innovation et toujours prêt à apprendre de nouvelles technologies.
+                        </p>
+                        <div class="skills-tags" style="margin-top: 1.5rem; justify-content: center;">
+                            <span class="skill-tag data">Stage Data Science</span>
+                            <span class="skill-tag">Freelance</span>
+                            <span class="skill-tag data">Projets Collaboratifs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Noa Gambey. Développé avec le ❤️ pour mettre en valeur mon parcours en data science.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.card');
+            // Elements
             const backToTopButton = document.getElementById('backToTop');
-            const header = document.querySelector('header');
-        
+            const navbar = document.querySelector('.navbar');
+            const projectCards = document.querySelectorAll('.project-card');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            // Intersection Observer for animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        entry.target.classList.add('fade-in-up');
                     }
                 });
             }, {
-                threshold: 0.1
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
-        
-            cards.forEach(card => {
+
+            // Observe project cards
+            projectCards.forEach(card => {
                 observer.observe(card);
             });
-        
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 70;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Scroll effects
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 200) {
-                    backToTopButton.style.display = 'block';
+                const scrollY = window.scrollY;
+
+                // Back to top button
+                if (scrollY > 300) {
+                    backToTopButton.style.display = 'flex';
                 } else {
                     backToTopButton.style.display = 'none';
                 }
-        
-                if (window.scrollY > 100) {
-                    header.style.backgroundColor = '#444';
+
+                // Navbar background
+                if (scrollY > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
                 } else {
-                    header.style.backgroundColor = '#333';
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.boxShadow = 'none';
                 }
             });
-        
+
+            // Back to top functionality
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
+
+            // Project filtering
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Add loading animation
+            window.addEventListener('load', () => {
+                document.body.style.opacity = '1';
+            });
         });
-        
-        
     </script>
-    
-    
-    <body>
-        <header>
-            <div class="container">
-                <h1>Mes Projets de Bachelor en Informatique</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#projects">Projets</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        
-        <div class="container">
-            <section id="about" class="about">
-                <h1>À propos de moi</h1>
-                <p>Bonjour! Je m'appelle Noa Gambey, et je suis actuellement en deuxième année de Bachelor en Informatique à l'école Ynov Aix. Je m'oriente vers la spécialisation en Data et Intelligence Artificielle. Cette page présente les projets que j'ai réalisés durant mes deux premières années de Bachelor.</p>
-            </section>
-            
-            <section id="projects" class="main">
-                <h1>Mes Projets</h1>
-    
-                <div class="section-title">
-                    <h2>Projets de Bachelor 1</h2>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <h2>Projet Red</h2>
-                        <p><strong>Description:</strong>Il s'agit du premier projet de ma B1 c'est un petit jeu à choix sur terminal avec une gestion de la vie, d'un inventaire et des combats : en binome</p>
-                        <p><strong>Technologies utilisées:</strong>Uniquement Golang</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/Projet-Red">Projet Red</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Hangman terminal et web</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un jeu du pendu en terminal et en web avec sauvegarde: en binome</p>
-                        <p><strong>Technologies utilisées:</strong>Golang, HTML CSS</p>
-                        <p><strong>Lien du projet (version terminal):</strong> <a href="https://github.com/matteoVcs/Vocanson-Gambey-Hangman">Hangman</a></p>
-                        <p><strong>Lien du projet (version web):</strong> <a href="https://github.com/NoaYnov/Hangman-Web-Vocanson-Gambey">Hangman web</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Groupie Tracker</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un site web permettant de d'accéder à toutes les informations du jeu Zelda Breath of the Wild, grâce à une API: en solo</p>   
-                        <p><strong>Technologies utilisées:</strong>Golang, HTML CSS</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/GroupieTracker_Gambey_Noa">Groupie Tracker</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Projet Crocs</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un site web de shopping sur le thème des crocs qui permet de choisir des crocs, dans plusieurs couleurs et tailles et de les ajouter à un panier: en binome</p>
-                        <p><strong>Technologies utilisées:</strong>JavaScript, HTML CSS</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/matteoVcs/VOCANSON-GAMBEY-shopping-app">Projet Crocs</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Projet Forum</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un forum où les utilisateurs peuvent poster des messages, des commentaires créer des topics et des sous topics, liker et disliker des messages: projet à 4</p>
-                        <p><strong>Technologies utilisées:</strong>JavaScript, Golang, HTML CSS, Base de donnée SQL</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/valentinlamine/LAMINE_GAMBEY_VOCANSON_GENDRON_Forum">Projet Forum</a></p>
-                    </div>
-                </div>
-    
-                <div class="section-title">
-                    <h2>Projets de Bachelor 2</h2>
-                </div>
-                <div class="card-container">
-                    <div class="card">
-                        <h2>Mario Bros Unity</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un clone du jeu Mario Bros réalisé avec Unity: en solo</p>
-                        <p><strong>Technologies utilisées:</strong>C# (Unity)</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/Mario-Bros">Mario Bros Unity</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Projet VPN</h2>
-                        <p><strong>Description:</strong>Il s'agit de la mise en place d'un VPN avec OpenVPN sur AWS, avec des comptes clients, un firewall, un intranet et un système de gestion des logs : en binome</p>
-                        <p><strong>Technologies utilisées:</strong>AWS, OpenVPN, UFW (Firewall), HTML CSS (pour les pages de l'intranet), Linux</p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Create Nuclear</h2>
-                        <p><strong>Description:</strong>Je suis actuellement le Co-Directeur de projet d'un Mod Minecraft nommé Create Nuclear, qui ajoute des machines et des items dans le jeu. Il s'agit d'un projet open source qui à été fait par un grand nombre de personnes de différent niveaux et de différentes filières (Informatique, 3d et Création design): en groupe</p>
-                        <p><strong>Technologies utilisées:</strong>Java</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/CreateNuclear/CreateNuclear">Create Nuclear</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Projet IOT</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un projet de domotique avec un système de gestion des cas contact au alentour : en groupe de 4</p>
-                        <p><strong>Technologies utilisées:</strong>C++ Arduino</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/IOT_Project/">Projet IOT</a></p>
-                    </div>
-    
-                    <div class="card">
-                        <h2>Login Sécurisé</h2>
-                        <p><strong>Description:</strong>Il s'agit d'un projet de login sécurisé avec un système de hashage des mots de passe et de gestion des sessions un système pour pouvoir rester connecté grâce à un token : en solo</p>
-                        <p><strong>Technologies utilisées:</strong>DAL(PHP) et Base de Donnée SQL</p>
-                        <p><strong>Lien du projet:</strong> <a href="https://github.com/NoaYnov/S-cu">Login Sécurisé</a></p>
-                    </div>
-                </div>
-            </section>
-    
-            <section id="contact" class="main">
-                <h1>Contact</h1>
-                <p>Pour plus d'informations ou pour toute opportunité de collaboration, vous pouvez me contacter via les informations ci-dessous:</p>
-                <p>Email: noa.gambey@ynov.com</p>
-                <p>Téléphone: 0778955876</p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/noa-gambey/">Gambey Noa</a></p>
-            </section>
-        </div>
-    
-        <footer class="footer">
-            <p>© 2024 Gambey Noa. Tous droits réservés.</p>
-        </footer>
-        <button id="backToTop">↑</button>
-        <script src="script.js"></script>
-    </body>
+</body>
+</html>
     
